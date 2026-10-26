@@ -5,7 +5,7 @@ let win;
 const tabs = new Map();
 let activeId = null;
 let nextId = 1;
-const HOME = 'https://desenvolvimento-da-rede-sats.vercel.app';
+const HOME = 'https://www.google.com';
 
 function safeUrl(input) {
   const value = String(input || '').trim();
@@ -45,7 +45,7 @@ function createTab(url = HOME) {
   if (!win) return;
   const id = nextId++;
   const view = new WebContentsView({webPreferences:{contextIsolation:true,nodeIntegration:false,sandbox:true,partition:'persist:sats-browser'}});
-  const tab = {id,view,title:'SATS',url:HOME,loading:false}; tabs.set(id,tab);
+  const tab = {id,view,title:'Nova aba',url:HOME,loading:false}; tabs.set(id,tab);
   view.webContents.setWindowOpenHandler(({url}) => { createTab(url); return {action:'deny'}; });
   view.webContents.on('page-title-updated',(_e,title)=>{tab.title=title;sendState();});
   view.webContents.on('did-start-loading',()=>{tab.loading=true;sendState();});
