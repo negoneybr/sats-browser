@@ -1,0 +1,18 @@
+{
+  "name": "sats-browser",
+  "version": "0.1.0",
+  "description": "SATS Browser - navegador gamer preto e vermelho",
+  "main": "src/main.js",
+  "author": "SATS",
+  "license": "MIT",
+  "scripts": { "start": "electron .", "dev": "electron .", "dist": "electron-builder" },
+  "devDependencies": { "electron": "^36.3.0", "electron-builder": "^26.0.12" },
+  "build": {
+    "appId": "com.sats.browser",
+    "productName": "SATS Browser",
+    "directories": { "output": "dist" },
+    "files": ["src/**/*", "package.json"],
+    "linux": { "target": ["AppImage", "deb"], "category": "Network;WebBrowser;" },
+    "win": { "target": ["nsis"] }
+  }
+}
